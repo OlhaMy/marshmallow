@@ -1,0 +1,28 @@
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.social-links img {
+  width: 30px;
+  margin: 10px;
+}
+
+form input,
+form textarea {
+  width: 80%;
+  margin: 10px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #ff4081;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}

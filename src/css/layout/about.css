@@ -1,0 +1,8 @@
+.about {
+  display: flex;
+  justify-content: space-between;
+}
+
+.about-image {
+  max-width: 50%;
+}
