@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
     <script type="module" crossorigin src="/marshmallow/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/marshmallow/assets/index-4sRqA7Gk.css">
+    <link rel="stylesheet" crossorigin href="/marshmallow/assets/index-IcX2U8zi.css">
   </head>
   <body>
     <section class="header-hero">
@@ -57,19 +57,60 @@
       <section class="shop">
   <h2>Our Products</h2>
   <div class="product-cards">
-    <div class="card">
-      <img src="images/product1.jpg" alt="Bouquet 1" />
-      <h3>Sweet Dream Bouquet</h3>
+    <div class="card" data-description="Опис продукту 1" data-calories="200">
+      <img src="../img/shop/img1.jpg" alt="Продукт 1">
+      <h3 class="card-title">Продукт 1</h3>
       <p>$25.00</p>
-      <button>Order Now</button>
+      <a href="tel:1234567890" class="card-button">Замовити</a>
     </div>
-    <div class="card">
-      <img src="images/product2.jpg" alt="Bouquet 2" />
-      <h3>Marshmallow Love</h3>
-      <p>$30.00</p>
-      <button>Order Now</button>
-    </div>
-  </div>
+
+
+    <div class="product-cards">
+      <div class="card" data-description="Опис продукту 1" data-calories="200">
+        <img src="../img/shop/img2.jpg" alt="Продукт 1">
+        <h3 class="card-title">Продукт 1</h3>
+        <p>$25.00</p>
+        <a href="tel:1234567890" class="card-button">Замовити</a>
+      </div>
+
+
+      <div class="product-cards">
+        <div class="card" data-description="Опис продукту 1" data-calories="200">
+          <img src="../img/shop/img3.jpg" alt="Продукт 1">
+          <h3 class="card-title">Продукт 1</h3>
+          <p>$25.00</p>
+          <a href="tel:1234567890" class="card-button">Замовити</a>
+        </div>
+
+
+        <div class="product-cards">
+          <div class="card" data-description="Опис продукту 1" data-calories="200">
+            <img src="../img/shop/img4.jpg" alt="Продукт 1">
+            <h3 class="card-title">Продукт 1</h3>
+            <p>$25.00</p>
+            <a href="tel:1234567890" class="card-button">Замовити</a>
+          </div>
+
+
+          <div class="product-cards">
+            <div class="card" data-description="Опис продукту 1" data-calories="200">
+              <img src="../img/shop/img5.jpg" alt="Продукт 1">
+              <h3 class="card-title">Продукт 1</h3>
+              <p>$25.00</p>
+              <a href="tel:1234567890" class="card-button">Замовити</a>
+            </div>
+
+
+            <div class="product-cards">
+              <div class="card" data-description="Опис продукту 1" data-calories="200">
+                <img src="../img/shop/img6.jpg" alt="Продукт 1">
+                <h3 class="card-title">Продукт 1</h3>
+                <p>$25.00</p>
+                <a href="tel:1234567890" class="card-button">Замовити</a>
+              </div>
+
+
+
 </section>
 
       <section class="reviews">
@@ -112,6 +153,17 @@
     <button type="submit">We'll Get Back to You</button>
   </form>
 </footer>
+
+    <div class="modal" id="productModal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <img src="" alt="" id="modalImage" />
+    <h2 id="modalTitle"></h2>
+    <p id="modalDescription"></p>
+    <p id="modalCalories"></p>
+    <a href="tel:1234567890" class="call-button">Подзвонити</a>
+  </div>
+</div>
 
 
   </body>
