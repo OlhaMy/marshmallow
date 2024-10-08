@@ -1,0 +1,147 @@
+.backdrop {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  background-color: rgba(15, 15, 16, 0.6);
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), visibility var(--transition);
+}
+
+.backdrop.is-open {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.modal-content {
+  position: absolute;
+  width: 343px;
+  padding: 64px 32px;
+  display: inline-flex;
+  flex-direction: column;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  border: 1px solid rgba(250, 250, 250, 0.1);
+  background-color: #fff;
+  transition: var(--transition);
+  overflow: hidden;
+  cursor: pointer;
+}
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.btnCloseModal {
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 375px) {
+  .modal-content {
+    width: 290px;
+  }
+}
+
+.modal-content::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-image: linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--borderMain), var(--borderMain)),
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--borderMain), var(--borderMain));
+  animation: rotate 4s linear infinite;
+}
+
+.modal-content::after {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  left: 1px;
+  top: 1px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  background: var(--backgroundMain);
+  border-radius: 20px;
+  transition: height var(--transition), width var(--transition);
+}
+
+.modal-content:hover::before {
+  background-image: linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--accent), var(--accent)),
+    linear-gradient(var(--accent), var(--accent));
+}
+
+.modal-content:hover::after {
+  width: calc(100% - 8px);
+}
+
+.text-modal {
+  color: var(--textAlternative);
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+}
+
+.btnCloseModal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background-color: transparent;
+  border: none;
+  transition: var(--transition);
+}
+
+@media (min-width: 768px) {
+  .btnCloseModal {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.modal-close {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  stroke-width: 2px;
+  stroke: var(--textMain);
+}
+
+@media (min-width: 768px) {
+  .modal-close {
+    width: 24px;
+    height: 24px;
+  }
+}

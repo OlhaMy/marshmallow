@@ -1,22 +1,29 @@
-header {
-  background-color: #333;
-  padding: 10px;
+.header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  padding: 16px 0;
+  background-color: var(--background);
+
+  color: var(--textColor);
+}
+
+.list {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
 }
+.logo {
+  width: 150px;
+}
+.menu {
+  display: flex;
 
-header nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+  align-items: center;
+  gap: 36px;
 }
 
-header nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-header nav ul li a {
-  color: white;
-  text-decoration: none;
-  font-size: 18px;
+.list li a.active {
+  font-weight: bold;
+  text-decoration: underline;
 }
