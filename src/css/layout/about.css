@@ -1,8 +1,67 @@
+/* Styles for the About section */
 .about {
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.about-image {
+.about-content {
+  width: 100%;
+  max-width: 45%;
+}
+
+.about-video {
+  width: 100%;
   max-width: 50%;
+  position: relative;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .about-content,
+  .about-video {
+    max-width: 100%;
+  }
+}
+
+.video-container {
+  perspective: 1000px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.video-container video.flip {
+  transform: rotateY(90deg);
+}
+
+/* Styles for the arrow buttons */
+.video-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.video-btn:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+.prev-btn {
+  left: -50px; /* Adjust the value to move the button outside the video */
+}
+
+.next-btn {
+  right: -50px; /* Adjust the value to move the button outside the video */
 }
