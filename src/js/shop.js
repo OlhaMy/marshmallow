@@ -1,50 +1,39 @@
 // Отримуємо елементи
 const productCards = document.querySelector('.product-cards');
 const loadMoreBtn = document.getElementById('loadMoreBtn');
+const productsPerRow = 3; // Кількість продуктів в рядку на великих екранах
 
-function getProductsPerRow() {
-  if (window.innerWidth >= 992) {
-    return 3; // Три продукти в рядку
-  } else if (window.innerWidth >= 576) {
-    return 2; // Два продукти в рядку
-  } else {
-    return 1; // Один продукт в рядку
-  }
+// Обчислюємо висоту одного рядка продуктів
+function getRowHeight() {
+  const card = document.querySelector('.product-cards .card');
+  const style = window.getComputedStyle(card);
+  const height = card.offsetHeight;
+  const marginBottom = parseFloat(style.marginBottom);
+  return height + marginBottom;
 }
 
+// Функція для оновлення стану
 function updateProductView() {
-  const products = Array.from(
-    document.querySelectorAll('.product-cards .card')
-  );
-  const productsPerRow = getProductsPerRow();
+  const products = document.querySelectorAll('.product-cards .card');
   const totalRows = Math.ceil(products.length / productsPerRow);
 
   if (window.innerWidth >= 768 && totalRows > 3) {
-    // Приховуємо продукти після третього ряду
-    const visibleProductsCount = productsPerRow * 3;
-    products.forEach((product, index) => {
-      if (index >= visibleProductsCount) {
-        product.classList.add('hidden');
-      } else {
-        product.classList.remove('hidden');
-      }
-    });
+    const rowHeight = getRowHeight();
+    const maxHeight = rowHeight * 3; // Висота трьох рядків
+    productCards.style.maxHeight = `${maxHeight}px`;
+    productCards.classList.add('collapsed');
     loadMoreBtn.style.display = 'block';
   } else {
-    // Відображаємо всі продукти
-    products.forEach(product => {
-      product.classList.remove('hidden');
-    });
+    productCards.style.maxHeight = 'none';
+    productCards.classList.remove('collapsed');
     loadMoreBtn.style.display = 'none';
   }
 }
 
-// Обробник події для кнопки "Завантажити більше"
+// Обробник події для кнопки
 loadMoreBtn.addEventListener('click', () => {
-  const products = document.querySelectorAll('.product-cards .card');
-  products.forEach(product => {
-    product.classList.remove('hidden');
-  });
+  productCards.style.maxHeight = 'none';
+  productCards.classList.remove('collapsed');
   loadMoreBtn.style.display = 'none';
 });
 
