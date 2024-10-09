@@ -69,6 +69,5 @@ main:has(.back-link) {
 @media (min-width: 768px) {
   .button {
     font-size: 21px;
-    padding: 18px 34px;
   }
 }

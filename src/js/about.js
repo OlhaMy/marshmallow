@@ -1,14 +1,25 @@
 // JavaScript to handle video flipping
-const videos = ['video1.mp4', 'video2.mp4', 'video3.mp4']; // Додайте ваші відеофайли
+const videos = [
+  'https://www.youtube.com/embed/RYL7JFJ0urE', // Перше відео
+  'https://www.youtube.com/embed/tgbNymZ7vqY', // Друге відео
+  'https://www.youtube.com/embed/3JZ_D3ELwOQ', // Третє відео для тестування
+];
+
 let currentVideoIndex = 0;
 
-const videoElement = document.querySelector('.video-container video');
+const iframeElement = document.querySelector('.video-container iframe');
 const prevBtn = document.getElementById('prevBtn');
 const nextBtn = document.getElementById('nextBtn');
 
 function flipVideo(direction) {
-  videoElement.classList.add('flip');
+  // Додаємо клас для 3D перевертання
+  if (direction === 'next') {
+    iframeElement.classList.add('flip-next');
+  } else {
+    iframeElement.classList.add('flip-prev');
+  }
 
+  // Змінюємо відео після завершення ефекту перевертання
   setTimeout(() => {
     if (direction === 'next') {
       currentVideoIndex = (currentVideoIndex + 1) % videos.length;
@@ -16,9 +27,9 @@ function flipVideo(direction) {
       currentVideoIndex =
         (currentVideoIndex - 1 + videos.length) % videos.length;
     }
-    videoElement.src = videos[currentVideoIndex];
-    videoElement.classList.remove('flip');
-  }, 300);
+    iframeElement.src = videos[currentVideoIndex];
+    iframeElement.classList.remove('flip-next', 'flip-prev'); // Видаляємо класи після повороту
+  }, 600); // Час перевертання відповідає CSS transition
 }
 
 prevBtn.addEventListener('click', () => flipVideo('prev'));
